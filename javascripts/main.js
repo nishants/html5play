@@ -1,18 +1,32 @@
 (function() {
 	'use strict';
+	var TabButton = function(tabName){
+		this.element 	= $("#" + tabName);
+	};
+
+	TabButton.prototype.select = function(){
+		this.element.addClass("active");
+	};
+
+	TabButton.prototype.unselect = function(){
+		this.element.removeClass("active");
+	};
+
 	var TabView  = function(name){
 		this.tabName 		= name;
-		this.tabButton 	= $("#" + name);
+		this.tabButton 	= new TabButton(name);
 		this.tabContent = $("#" + name + "-content");
 		this.tabAside 	= $("#" + name + "-aside");
 	};
 
 	TabView.prototype.hide = function(){
+		this.tabButton.unselect();
 		this.tabContent.hide();
 		this.tabAside.hide();
 	};
 
 	TabView.prototype.show = function(){
+		this.tabButton.select();
 		this.tabContent.show();
 		this.tabAside.show();
 	};
@@ -45,8 +59,9 @@
 	};
 
 	var whenDomReady = function(){
-		var app = new MyApp(["tab1","tab2","tab3"]);
-		app.showTab("tab1");				
+		var app = new MyApp(["tab1","tab2","tab3", ""]);
+		app.showTab("tab1");	
+
 		$("#tab1").on('click', function(){
 			app.showTab("tab1");
 		});
@@ -59,8 +74,6 @@
 			app.showTab("tab3");
 		});
 
-		// For testing only
-		window.myTabbdApp = app;
 	};
 
 	$(document).ready(whenDomReady);	
