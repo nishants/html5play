@@ -76,5 +76,9 @@
 
 	};
 
-	$(document).ready(whenDomReady);	
+	$(document).ready(
+		function(){
+			setTimeout(whenDomReady);
+		}
+	);	
 }).call(this);

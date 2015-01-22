@@ -1,9 +1,9 @@
-article{
+section {
   float: right;
   width: 80%;
 }
 
-aside{
+aside {
   float: left;
   width: 20%;
 }
