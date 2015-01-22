@@ -38,7 +38,7 @@
 	var MyApp = function(tabNames){
 		var tabs = {};
 		for(var i = 0; i < tabNames.length; i++){
-			var tabName = tabNames[i];
+			var tabName 	= tabNames[i];
 			tabs[tabName] = new TabView(tabName);
 		}
 		this.tabs = tabs;
@@ -47,7 +47,7 @@
 	MyApp.prototype.showTab = function(showTabName){
 		var tabs = this.tabs;
 		for(var tabName in tabs){
-			var tab     = tabs[tabName]
+			var tab = tabs[tabName]
 			if(tab.name() != (showTabName)){
 				tab.hide();
 			} else{
