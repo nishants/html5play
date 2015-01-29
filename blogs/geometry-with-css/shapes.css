@@ -1,0 +1,55 @@
+#geometry-with-css {
+    background-image: url(images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    padding: 5px;
+}
+
+/*Fixed navigation panel*/
+.navigation {
+    width: 100%;
+    height: 10%;
+    line-height: 3em;
+    font-size: large;
+    padding-bottom: 2%;
+    background-color: transparent;
+}
+
+/*Options in navigation links*/
+.navigation-link {
+    width: 25%;
+    float: right;  /* Else the links dont respond to width attribute*/
+    display: inline;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navigation-link:hover {
+    background-color: lightgreen;
+}
+
+
+.navigation-link > a {
+    /* Display the anchor to full width of parent container*/
+    display: inline-block;
+    width: 100%;
+}
+
+/*Represent a card of information*/
+.card {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 1% 1% 2% 1% ;
+}
+
+.card-content {
+
+}
+
+/*Contents for the blog*/
+#css-shapes {
+}

@@ -1,0 +1,180 @@
+<head>
+    <link rel="stylesheet" href="../../stylesheets/foundation.css">
+    <link rel="stylesheet" href="css-shapes.css">
+    <link rel="stylesheet" href="shapes.css">
+</head>
+
+<body id="geometry-with-css">
+<div id="header" class="navigation">
+        <div class="navigation-link">
+            <a href="#square"> Square</a>
+        </div>
+
+        <div class="navigation-link">
+            <a href="#circle"> Circle</a>
+        </div>
+
+        <div class="navigation-link">
+            <a href="#oval"> Oval</a>
+        </div>
+        <div class="navigation-link">
+            <a href="#triangle-down"> Triangle</a>
+        </div>
+</div>
+
+<article id="css-shapes" class="">
+    <section id="square" class="card">
+        <div class="card-head">
+        </div>
+        <div class="card-content">
+            Drawing square is the simplest. Just create an element
+            with fixed height and width.Then set a background color.
+        </div>
+
+        <div class="card-content">
+            <div class="css-shape square"></div>
+        </div>
+
+        <div class="card-content css-syntax">
+        .css-shape{
+            background-color: green;
+            display: inline;
+        }
+
+        .square{
+            width: 100px;
+            height: 100px;
+        }
+        </div>
+
+    </section>
+
+    <section id="circle" class="card ">
+        <div class="shape-info">
+            An border becomes semicircle, if radius of the edge is half its length.
+            So a square becomes circle, if border radius is laf the length.
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape circle"></div>
+        </div>
+
+        <pre class="css-syntax">
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+        </pre>
+
+    </section>
+    <section id="oval" class="card ">
+        <div class="shape-info">
+            The rectangle with border radius 50%(for both height and width)
+             is an oval
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape rectangle"></div>
+        </div>
+
+        <pre class="css-syntax">
+.rectangle{
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+}
+        </pre>
+
+    </section>
+
+    <section id="triangle-up" class="card ">
+        <div class="shape-info">
+            User the magic of borders
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape triangle-up"></div>
+        </div>
+
+        <pre class="css-syntax">
+.triangle-up{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green;
+    background-color: transparent;
+}
+        </pre>
+
+    </section>
+
+    <section id="triangle-down" class="card ">
+        <div class="shape-info">
+            User the magic of borders
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape triangle-down"></div>
+        </div>
+
+        <pre class="css-syntax">
+.triangle-down{
+    height: 0px;
+    width: 0px;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+    border-top: 100px solid green;
+    background-color: transparent;
+}
+        </pre>
+
+    </section>
+    <section id="triangle-left" class="card ">
+        <div class="shape-info">
+            User the magic of borders
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape triangle-left"></div>
+        </div>
+
+        <pre class="css-syntax">
+.triangle-left{
+    height: 0px;
+    width: 0px;
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-left: 100px solid green;
+    background-color: transparent;
+}
+        </pre>
+
+    </section>
+    <section id="triangle-right" class="card ">
+        <div class="shape-info">
+            User the magic of borders
+        </div>
+
+        <div class="display-shape">
+            <div class="css-shape triangle-right"></div>
+        </div>
+
+        <pre class="css-syntax">
+
+.triangle-right{
+    height: 0px;
+    width: 0px;
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-right: 100px solid green;
+    background-color: transparent;
+}
+
+        </pre>
+
+    </section>
+
+</article>
+</body>

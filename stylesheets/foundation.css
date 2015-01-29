@@ -1,0 +1,57 @@
+/*http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation*/
+
+
+html {
+    /*. Prevent certain mobile browsers from automatically zooming fonts*/
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    /*. Better typefaces*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    /*. Gets rid of undesired page margins.*/
+    margin: 0;
+    /*. Get rid of inconsistencies in the font sizes in browsers*/
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    transition: .1s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
