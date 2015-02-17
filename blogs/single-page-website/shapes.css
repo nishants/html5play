@@ -1,0 +1,78 @@
+html	{
+font-family: 'Varela Round', sans-serif;
+}
+#navigation-header {
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 100%;
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	/*display: none;*/
+}
+
+.navigation-link {
+	width: 100%;
+	float: right;  /* Else the links dont respond to width attribute*/
+	display: inline;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.3);
+	font-size: 20px;	
+}
+
+#navigation-header   a {
+	font-size: 18px;
+	font-weight: 700;
+	color: #777;
+	text-decoration: none; /* navigation links should not be underlined*/
+}	
+
+#navigation-header :hover a{
+    color: #e67e22;	
+}
+
+.navigation-link > a {
+    /* Display the anchor to full width of parent container*/
+    display: inline-block;
+    width: 100%;
+}
+@media screen and (min-width: 500px) {
+	/*Fixed navigation panel*/
+	#navigation-header {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		line-height: 3em;
+		z-index: 1;
+		background-color: transparent;
+		position: fixed;
+		top: 0;
+		display: block;
+
+	}
+
+	/*Options in navigation links*/
+	.navigation-link {
+		width: 25%;
+		float: right;  /* Else the links dont respond to width attribute*/
+		display: inline;
+		text-align: center;
+		background-color: rgba(255, 255, 255, 0.3);
+		font-size: 20px;
+	}
+}
+
+
+#welcome {
+    background-image: url(images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    padding: 5px;
+}
+
+section {
+   height:100vh; /*Each section of the size of viewport.*/
+}
