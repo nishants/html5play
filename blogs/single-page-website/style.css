@@ -1,0 +1,23 @@
+html	{
+	font-family: 'Varela Round', sans-serif;
+}
+
+section  {
+   height:100vh; /*Each section of the size of viewport.*/
+}
+
+section.image-background{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #FFFFFF;
+    padding: 5px;
+}
+
+.dark-background{
+	background-color: #1A0000;
+}
+
+#welcome{
+    background-image: url(images/background.jpg);
+}

@@ -1,0 +1,21 @@
+#navigation-header {
+	position: fixed;
+	top: 0;	
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 80%;
+	line-height: 2.5em;
+	margin: 0 5% 2% 5%;
+	text-align: center;
+}
+
+.navigation-link {
+	font-size: 100%;
+	font-weight: 700;
+	color: #777;
+	text-decoration: none;  /* Navigation links should not be underlined*/
+	display: inline-block;  /* Make links block, to apply width properties*/
+	width: 24%;				/* Width 25%, will make the links break into two lines.*/
+}	
+
+// what is taking extra width in naviagation bar.
