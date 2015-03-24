@@ -14,7 +14,11 @@ section  {
   background-color: rgba(0,0,0,0.5); /*dim the background*/
 }
 
-.elevated{
-	z-index: 1;
+.depressed{
+	z-index: -1;
+	position: fixed;
+}
+
+.fixed-position{
 	position: fixed;
 }
