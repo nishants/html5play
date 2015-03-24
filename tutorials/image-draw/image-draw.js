@@ -10,8 +10,8 @@ var mask = function($target, $with){
     $target.addClass("depressed");
     $with.addClass("fixed-position");
 
-    $with.width($target.width());
-    $with.height($target.height());
+    $with.attr("width", $target.width());
+    $with.attr("height", $target.height());
     
     var left = $target.position().left;
     var top = $target.position().top;
@@ -27,9 +27,3 @@ window.drawApp = app;
 
 
 
-// image = $("#some-image");
-// canvas = $("#canvas");
-// console.log("image: "+image.position().top + " | canvas: " + canvas.position().top);
-// console.log("image: "+image.position().left + " | canvas: " + canvas.position().left);
-// console.log("image: "+image.width() + " | canvas: " + canvas.width());
-// console.log("image: "+image.height() + " | canvas: " + canvas.height());
