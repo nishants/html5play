@@ -24,6 +24,22 @@ app.process = function($imageElement){
 
 window.drawApp = app;
 
+var assertThat = function(canvasVal, imageVal, propertyName){
+    if(!(canvasVal === imageVal)){
+        console.error(propertyName + ": canvas: "+canvasVal + ", image: "+imageVal);
+    } else {
+        console.log(propertyName + " = " + canvasVal);
+    }
+}
 
+window.testApp = function(){
+    var canvas = $("#canvas");
+    var image  = $("#some-image");
+    assertThat(canvas.height(), image.height(), "height");
+    assertThat(canvas.width(), image.width(), "width");
+    
+    assertThat(canvas.position().left, image.position().left, "left");
+    assertThat(canvas.position().right, image.position().right, "right");
+}
 
 
