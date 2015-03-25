@@ -3,9 +3,13 @@ var org = {};
 org.geeksaints = {};
 org.geeksaints.chiesel = {};
 
-org.geeksaints.chiesel.Image = function($targetElement){
-    
+var Image = function($targetElement){
+    newCanvas("canvas");
 }; 
+
+org.geeksaints.chiesel.editImage = function($targetElement){
+    return new Image($targetElement);
+};
 
 var newCanvas= function(id){
     var canvas = $(jQuery.parseHTML("<canvas id='" + id + "' class='transparent elevated'></canvas>"));
