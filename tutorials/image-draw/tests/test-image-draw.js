@@ -15,6 +15,10 @@ QUnit.testStart(function( details ) {
     $("#qunit-fixture").append(testImageTwo);
 });
 
+QUnit.testDone(function(){
+    // Delete the canvas element created after test.
+    $("canvas").remove();
+});
 
 QUnit.test("should create a canvas and append to the body on editImage", function(assert) {
     org.geeksaints.chiesel.editImage($("#some-image"));
