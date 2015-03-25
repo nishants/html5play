@@ -7,7 +7,7 @@ var newCanvas= function(id){
 };
 
 var mask = function($target, $with){    
-    $target.addClass("depressed");
+    // $target.addClass("depressed");
     $with.addClass("fixed-position");
 
     $with.attr("width", $target.width());
@@ -36,13 +36,14 @@ app.process = function($imageElement){
 
 window.drawApp = app;
 
+/********* Test utitity*********************************************************/
 var assertThat = function(canvasVal, imageVal, propertyName){
     if(!(canvasVal === imageVal)){
         console.error(propertyName + ": canvas: "+canvasVal + ", image: "+imageVal);
     } else {
         console.log(propertyName + " = " + canvasVal);
     }
-}
+};
 
 window.testApp = function(){
     var canvas = $("#canvas");
@@ -52,4 +53,4 @@ window.testApp = function(){
     
     assertThat(canvas.position().left, image.position().left, "left");
     assertThat(canvas.position().right, image.position().right, "right");
-}
+};
