@@ -18,8 +18,20 @@ var mask = function($target, $with){
     $with.css({left: left, top: top});
 };
 
+var fitCanvasOverTarget = function($imageElement, $canvasElement){
+    return function(){
+        mask($imageElement, $canvasElement);
+    };
+};
+
 app.process = function($imageElement){
-    mask($imageElement, newCanvas("canvas"));
+    $(window).resize( 
+        fitCanvasOverTarget(
+            $imageElement, 
+            newCanvas("canvas")
+        )
+    );
+    $(window).trigger("resize");
 };
 
 window.drawApp = app;
@@ -41,5 +53,3 @@ window.testApp = function(){
     assertThat(canvas.position().left, image.position().left, "left");
     assertThat(canvas.position().right, image.position().right, "right");
 }
-
-
