@@ -1,6 +1,7 @@
 Issues : 
 triggers a window resize on load.
 Changes the z-index and position to absolute of the image on page.
+Canvas drawings are lost on resize.
 
 Plan
 1. Create a canvas of size same as that of image.
@@ -11,6 +12,7 @@ Plan
 
 // Add a tag in image
 var image = new Image($imageElement); //imageElement is expected to be an image, or container with image filling up all area.
+
 
 image.addLocation( { 
 	"name"			: "point-one", 

@@ -1,4 +1,11 @@
 var app =  {};
+var org = {};
+org.geeksaints = {};
+org.geeksaints.chiesel = {};
+
+org.geeksaints.chiesel.Image = function($targetElement){
+    
+}; 
 
 var newCanvas= function(id){
     var canvas = $(jQuery.parseHTML("<canvas id='" + id + "' class='transparent elevated'></canvas>"));
@@ -35,6 +42,7 @@ app.process = function($imageElement){
 };
 
 window.drawApp = app;
+window.org = org;
 
 /********* Test utitity*********************************************************/
 var assertThat = function(canvasVal, imageVal, propertyName){
