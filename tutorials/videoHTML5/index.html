@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+    <link 	rel="stylesheet" href="../../stylesheets/foundation.css">
+	<link 	rel="stylesheet" href="video.css">
+
+	<script src="../../javascripts/lib/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="video.js"></script>
+</head>
+<body> 
+
+
+<video id="display" width="320" height="240" controls>
+  <source src="https://raw.githubusercontent.com/nishants/-Docs/master/HarlemShake.mp4" type="video/mp4">
+  <source src="https://raw.githubusercontent.com/nishants/-Docs/master/dontuploadthis.mp4" type="video/mp4">
+<!--   <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+  <track src="subtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian">
+ --></video>
+<script type="text/javascript">
+	var harlemShake = "https://raw.githubusercontent.com/nishants/-Docs/master/HarlemShake.mp4",
+		dontuploadthis = "https://raw.githubusercontent.com/nishants/-Docs/master/dontuploadthis.mp4";
+
+	var dislay = document.getElementById("display");
+	var dislayElement = $("#display");
+
+	var changeVideoTo = function(src){
+		dislayElement.attr("src", src);
+	};
+	
+	var playVideo = function(src){
+		console.log("playing");
+		display.play();
+	};
+
+	setTimeout(
+		playVideo		
+		,500
+	);
+
+	setTimeout(
+		function(){
+			console.log("chaning to  dontuploadthis");
+			changeVideoTo(dontuploadthis);
+			setTimeout(playVideo,1000);
+				setTimeout(
+					function(){
+						changeVideoTo(harlemShake);
+						console.log("playing harlemShake");
+						setTimeout(playVideo);
+					}		
+					,5000
+				);	
+		}		
+		,5000
+	);		
+
+
+
+</script>
+</body> 
+</html>
