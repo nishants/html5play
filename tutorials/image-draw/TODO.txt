@@ -1,6 +1,5 @@
 Issues : 
-triggers a window resize on load.
-Changes the z-index and position to absolute of the image on page.
+Cnavas fails to overlap for tests, needs to be inspected.
 Canvas drawings are lost on resize.
 
 Plan

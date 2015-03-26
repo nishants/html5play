@@ -4,11 +4,25 @@ org.geeksaints = {};
 org.geeksaints.chiesel = {};
 
 var Image = function($targetElement){
-    newCanvas("canvas");
+    
 }; 
 
+var fitCanvasOverTarget = function($imageElement, $canvasElement){
+    return function(){
+        mask($imageElement, $canvasElement);
+    };
+};
+
 org.geeksaints.chiesel.editImage = function($targetElement){
-    return new Image($targetElement);
+    var editableImage = new Image($targetElement);
+    $(window).resize( 
+        fitCanvasOverTarget(
+            $targetElement, 
+            newCanvas("canvas")
+        )
+    );
+    $(window).trigger("resize");
+    return editableImage;
 };
 
 var newCanvas= function(id){
@@ -29,11 +43,7 @@ var mask = function($target, $with){
     $with.css({left: left, top: top});
 };
 
-var fitCanvasOverTarget = function($imageElement, $canvasElement){
-    return function(){
-        mask($imageElement, $canvasElement);
-    };
-};
+
 
 app.process = function($imageElement){
     $(window).resize( 
