@@ -13,21 +13,28 @@
 	</section>	
 
 	<script type="text/javascript">
-		var drawALine = function(){
-			var c = document.getElementById("canvas");
-			var ctx=c.getContext("2d");
-			ctx.beginPath();
-			ctx.moveTo(0,0);
-			ctx.lineTo(300,150);
-			ctx.stroke();
+		var assertThat = function(canvasVal, imageVal, propertyName){
+		    if(!(canvasVal === imageVal)){
+		        console.error(propertyName + ": canvas: "+canvasVal + ", image: "+imageVal);
+		    } else {
+		        console.log(propertyName + " = " + canvasVal);
+		    }
 		};
 
-		var drawOnImage = function(){
-			drawApp.process($("#some-image"));
+		window.testApp = function(){
+		    var canvas = $("#canvas");
+		    var image  = $("#some-image");
+		    assertThat(canvas.height(), image.height(), "height");
+		    assertThat(canvas.width(), image.width(), "width");
+		    
+		    assertThat(canvas.position().left, image.position().left, "left");
+		    assertThat(canvas.position().right, image.position().right, "right");
 		};
+
 		
-		$(document).ready(drawOnImage);
-		setTimeout(drawALine, 1000);
+		$(document).ready(function(){
+			org.geeksaints.chiesel.editImage($("#some-image"));
+		});
 	</script>
 </body>
 </html>

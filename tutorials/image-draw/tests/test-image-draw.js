@@ -32,6 +32,27 @@ QUnit.test("should create a canvas and append to the body on editImage", functio
     });
 });
 
+QUnit.test("should size canvas to overlap on image", function(assert){
+    var done = assert.async();
+    var imageElement = $("#some-image");
+    var image = org.geeksaints.chiesel.editImage(imageElement);
+    var canvas = $("canvas").first();
+
+    setTimeout(function(){
+        assert.equal(
+            canvas.height(),   
+            imageElement.height(),  
+            "heights dont match");
+            
+        assert.equal(
+            canvas.width(),    
+            imageElement.width(),   
+            "widths dont match");
+            
+        done();
+    }); 
+});
+
 QUnit.skip("should size canvas to overlap on image", function(assert){
     var done = assert.async();
     var imageElement = $("#some-image");
@@ -39,12 +60,17 @@ QUnit.skip("should size canvas to overlap on image", function(assert){
     var canvas = $("canvas").first();
 
     setTimeout(function(){
-        assert.equal(canvas.height(),   imageElement.height(),  "heights dont match");
-        assert.equal(canvas.width(),    imageElement.width(),   "widths dont match");
         
-        // assert.equal(canvas.position().top,   imageElement.position().top,  "top positions dont match");
-        // assert.equal(canvas.position().left,    imageElement.position().left,   "left positions dont match");
+        assert.equal(
+            canvas.position().top,  
+            imageElement.position().top, 
+            "top positions dont match");
+            
+        assert.equal(
+            canvas.position().left, 
+            imageElement.position().left,
+            "left positions dont match");
       
         done();
-    });        
+    });   
 });

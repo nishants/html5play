@@ -3,28 +3,6 @@ var org = {};
 org.geeksaints = {};
 org.geeksaints.chiesel = {};
 
-var Image = function($targetElement){
-    
-}; 
-
-var fitCanvasOverTarget = function($imageElement, $canvasElement){
-    return function(){
-        mask($imageElement, $canvasElement);
-    };
-};
-
-org.geeksaints.chiesel.editImage = function($targetElement){
-    var editableImage = new Image($targetElement);
-    $(window).resize( 
-        fitCanvasOverTarget(
-            $targetElement, 
-            newCanvas("canvas")
-        )
-    );
-    $(window).trigger("resize");
-    return editableImage;
-};
-
 var newCanvas= function(id){
     var canvas = $(jQuery.parseHTML("<canvas id='" + id + "' class='transparent elevated'></canvas>"));
     $("body").append(canvas);
@@ -32,7 +10,6 @@ var newCanvas= function(id){
 };
 
 var mask = function($target, $with){    
-    // $target.addClass("depressed");
     $with.addClass("fixed-position");
 
     $with.attr("width", $target.width());
@@ -43,36 +20,27 @@ var mask = function($target, $with){
     $with.css({left: left, top: top});
 };
 
+var Image = function($targetElement){
+    this.canvas = newCanvas("canvas");
+    this.element = $targetElement;
+}; 
 
-
-app.process = function($imageElement){
-    $(window).resize( 
-        fitCanvasOverTarget(
-            $imageElement, 
-            newCanvas("canvas")
-        )
-    );
-    $(window).trigger("resize");
+Image.prototype.refresh = function(){
+    mask(this.element, this.canvas);
+    this.draw();
 };
 
-window.drawApp = app;
-window.org = org;
-
-/********* Test utitity*********************************************************/
-var assertThat = function(canvasVal, imageVal, propertyName){
-    if(!(canvasVal === imageVal)){
-        console.error(propertyName + ": canvas: "+canvasVal + ", image: "+imageVal);
-    } else {
-        console.log(propertyName + " = " + canvasVal);
-    }
+Image.prototype.draw = function(){
+    var c = document.getElementById(this.canvas.attr("id"))
+    var context = c.getContext("2d");
+    context.beginPath();
+    context.moveTo(0,0);
+    context.lineTo(300,150);
+    context.stroke();
 };
 
-window.testApp = function(){
-    var canvas = $("#canvas");
-    var image  = $("#some-image");
-    assertThat(canvas.height(), image.height(), "height");
-    assertThat(canvas.width(), image.width(), "width");
-    
-    assertThat(canvas.position().left, image.position().left, "left");
-    assertThat(canvas.position().right, image.position().right, "right");
+org.geeksaints.chiesel.editImage = function($targetElement){
+    var image = new Image($targetElement);
+    image.refresh();
+    return image;
 };
