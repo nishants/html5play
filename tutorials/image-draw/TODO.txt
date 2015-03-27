@@ -7,7 +7,6 @@ Canvas drawings are lost on resize.
 Do not apply css classes, instead make dirent css property change in js.
 
 TODO
-2. pull commons in marker and image draw.
 3. Create view to store mark locations in the image.
 4. Keep the aspect ratio of the image, 
 

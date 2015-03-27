@@ -3,7 +3,7 @@ html	{
 }
 
 section  {
-   height:100vh; /*Each section of the size of viewport.*/
+   height: 80%; /*Each section of the size of viewport.*/
 }
 
 .full-width{
