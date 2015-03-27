@@ -1,32 +1,69 @@
 
+/*************** Marker ****************/
+
+var Marker = function($pane){
+    this.pane       = $pane;
+    this.locations  = [];
+}; 
+
+Marker.prototype.markLocation = function(){
+    this.locations.push(markedLocation);
+};
+
+Marker.prototype.selectLocation = function(event){
+    this.form.display(event.x, event.y);
+};
+
+/*************** Location Form Model /****************/
+
+var LocationForm = function(locationXCoordinate, locationYCoordinate){
+    // New instance must be created for each selection
+    // Hides on cancel, visible on being created
+    this.locationX = locationXCoordinate;
+    this.locationY = locationYCoordinate;
+    this.form().show();
+};
+
+LocationForm.prototype.form = function(){
+    return $("#location-form");
+};
+
+LocationForm.prototype.addButton = function(){
+    return $("#add-location");
+};
+LocationForm.prototype.cancelButton = function(){
+    return $("#ignore-location");
+};
+
+LocationForm.prototype.nameInput = function(){
+    return $("#iocation-name");
+};
+
+LocationForm.prototype.descriptionInput = function(){
+    return $("#location-description");
+};
+
+/***************** Factory ****************************/
+
 var newDiv= function(id){
     var sheet = $(jQuery.parseHTML("<div id='" + id + "' class='transparent-red elevated'></div>"));
     $("body").append(sheet);
     return sheet;
 };
 
-var Marker = function($target){
-    this.element    = $target;
-}; 
-
-// class arg is optional(custom styling for the mask)
-var markImagePositions = function($image, maskStyle){
+org.geeksaints.marker = function($image){
     var maskID = "marker";
     var markingLayer = newDiv(maskID);
     
-    if(maskStyle){
-      markingLayer.addClass(maskStyle);  
-    } 
-
     var mask = org.geeksaints.mask($image, markingLayer);
     mask.wear(); 
 
-    var marker = new Marker(markingLayer);
+    var marker = new Marker(markingLayer, new LocationForm());
+    LocationForm.prototype.form().hide();
     return marker;
 };
 
-org.geeksaints.marker = markImagePositions;
-
+/******************* Utility Test **************************/
 var assertThat = function(sheetVal, imageVal, propertyName){
     if(!(sheetVal === imageVal)){
         console.error(propertyName + ": sheet: "+sheetVal + ", image: "+imageVal);
