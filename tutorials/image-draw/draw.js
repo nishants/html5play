@@ -8,11 +8,13 @@ var Drawing = function(context){
     this.context = context;
 };
 
-Drawing.prototype.draw = function(){
+Drawing.prototype.drawLine = function(from, to){
     var context = this.context;
     context.beginPath();
-    context.moveTo(0,0);
-    context.lineTo(300,150);
+    context.moveTo(from.x, from.y);
+    context.lineTo(to.x, to.x);
+    context.lineWidth = 10;
+    context.strokeStyle = '#ff0000';
     context.stroke();
 };
 
@@ -23,6 +25,5 @@ org.geeksaints.chiesel.editImage = function($image){
     var drawingContext = document.getElementById(maskID).getContext("2d");
     var drawing = new Drawing(drawingContext);
     mask.wear(); 
-    setTimeout(function(){drawing.draw();});
     return drawing;
 };
