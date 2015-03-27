@@ -14,12 +14,11 @@ Drawing.prototype.draw = function(){
     context.moveTo(0,0);
     context.lineTo(300,150);
     context.stroke();
-
 };
 
 org.geeksaints.chiesel =  {};
 org.geeksaints.chiesel.editImage = function($image){
-    var maskID = "mask";
+    var maskID = "drawing";
     var mask = org.geeksaints.mask($image, newCanvas(maskID));
     var drawingContext = document.getElementById(maskID).getContext("2d");
     var drawing = new Drawing(drawingContext);
