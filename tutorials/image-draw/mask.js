@@ -94,13 +94,7 @@ Mask.prototype.wear = function(){
 };
 
 var setMask = function($target, $sheet){
-    var mask = new Mask($target, newSheetWith($sheet));
-    setInterval(
-        function(){mask.wear();},
-        100
-    );
-
-    return mask;
+    return new Mask($target, newSheetWith($sheet));
 };
 
 window.org = {

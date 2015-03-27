@@ -16,7 +16,8 @@ QUnit.test("should reposition the mask on target", function(assert) {
     var targetElement = $("#target");
     var maskElement = $("#mask");
 
-    org.geeksaints.mask(targetElement, maskElement);
+    var mask = org.geeksaints.mask(targetElement, maskElement);
+    setTimeout(mask.wear());
 
     setTimeout(function(){
         // console.log(targetElement.height() +" |hieght| " + maskElement.height());
@@ -50,7 +51,7 @@ QUnit.test("should reposition the mask on target", function(assert) {
         // console.log(targetElement.position().top+" | width | " + maskElement.position().top);
 
         done();
-    }, 2000);
+    });
 });
 
 var assertThat = function(canvasVal, imageVal, propertyName){
