@@ -1,3 +1,4 @@
+/************ Class ************/
 var newSheet = function(type){
     if(type == "div") return new DivSheet();
     if(type == "canvas") return new Canvasheet();
@@ -15,7 +16,8 @@ Sheet.prototype.resize = function(height, width){
     console.log("generic sheet resize");
 };
 
- CanvasSheet = function($element){
+/******* Extending and overriding ********/
+CanvasSheet = function($element){
     Sheet.call(this);
     this.element = $element;
 };
@@ -26,3 +28,12 @@ CanvasSheet.prototype.resize = function(height, width){
     console.log("canvas resize");
 };
 
+/************ Static or Class Members ************/
+
+var Car = function(){};
+Car.prototype.tyreCount = 4;
+Car.prototype.costOfReplacinTyres = function(costOfOneTyre){
+	return costOfOneTyre * this.tyreCount;
+};
+
+(new Car()).costOfReplacinTyres(1);
