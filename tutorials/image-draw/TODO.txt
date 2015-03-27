@@ -1,11 +1,11 @@
 Issues : 
+Window resize not working.
 Cnavas fails to overlap for tests, needs to be inspected.
 Canvas drawings are lost on resize.
+Do not apply css classes, instead make dirent css property change in js.
 
-Plan
-1. Create a canvas of size same as that of image.
-2. Add tests and abstract in a model
-3. Lib should not add/remove any property of the image.
+TODO
+2. pull commons in marker and image draw.
 3. Create view to store mark locations in the image.
 4. Keep the aspect ratio of the image, 
 
