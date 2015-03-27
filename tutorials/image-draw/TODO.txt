@@ -1,4 +1,6 @@
 Issues : 
+The api is cross-cuttingle dependent on jquery.
+Image not drawn when page is opened for the first time.
 Window resize not working.
 Cnavas fails to overlap for tests, needs to be inspected.
 Canvas drawings are lost on resize.
