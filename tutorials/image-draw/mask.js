@@ -4,6 +4,10 @@ var isCanvas = function(element){
     return element.is("canvas");
 };
 
+var getPosition = function(element){
+    return element.offset();
+};
+
 var setPosition = function(element, position){
     element.css({
         left:   position.left, 
@@ -24,11 +28,11 @@ var setHeight = function(element, height){
 };
 
 var getWidth = function(element){
-    element.width();
+    return element.width();
 };
 
 var getHeight = function(element){
-    element.height();
+    return element.height();
 };
 
 var setPositionToFixed = function(element){
@@ -68,7 +72,7 @@ var newSheetWith = function($element){
     setPositionToFixed($element);
 
     if(isCanvas($element)){
-      return new Canvasheet($element);  
+      return new CanvasSheet($element);  
     } 
     return new Sheet($element);
 };
@@ -78,7 +82,7 @@ var Mask = function($target, sheet){
     this.sheet  = sheet;
 };
 
-Mask.mask = function(){
+Mask.prototype.wear = function(){
     this.sheet.resize(
         getWidth(this.target),
         getHeight(this.target)
@@ -89,8 +93,16 @@ Mask.mask = function(){
     );
 };
 
-var mask = function(){};
+var setMask = function($target, $sheet){
+    var mask = new Mask($target, newSheetWith($sheet));
+    setInterval(
+        function(){mask.wear();},
+        100
+    );
+
+    return mask;
+};
 
 window.org = {
-    geeksaints: {mask: null}
+    geeksaints: {mask: setMask}
 };
