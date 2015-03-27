@@ -1,39 +1,24 @@
 
-var createSheet= function(id){
+var newDiv= function(id){
     var sheet = $(jQuery.parseHTML("<div id='" + id + "' class='transparent-red elevated'></div>"));
     $("body").append(sheet);
     return sheet;
 };
 
-var mask = function($target, $with){    
-    $with.addClass("fixed-position");
-
-    $with.width( $target.width());
-    $with.height($target.height());
-    
-    var left = $target.position().left;
-    var top = $target.position().top;
-    $with.css({left: left, top: top});
-};
-
-var Marker = function($image){
-    this.element    = $image;
-    this.sheet      = createSheet("marker-sheet");
+var Marker = function($target){
+    this.element    = $target;
 }; 
 
-Marker.prototype.refresh = function(){
-    mask(this.element, this.sheet);
-};
-
 var markImagePositions = function($image){
-    var marker = new Marker($image);
-    marker.refresh();
+    var maskID = "marker";
+    var markingLayer = newDiv(maskID);
+
+    var mask = org.geeksaints.mask($image, markingLayer);
+    mask.wear(); 
+
+    var marker = new Marker(markingLayer);
     return marker;
 };
 
-var app =  {};
-var org = {};
-org.geeksaints = {};
-org.geeksaints.chiesel = {};
-org.geeksaints.chiesel.markImagePositions = markImagePositions;
+org.geeksaints.marker = markImagePositions;
 
