@@ -26,10 +26,12 @@ Drawing.prototype.drawLine = function(from, to){
 Drawing.prototype.markPoint = function(x, y){
     // Preferring rect over circle(better performance)
     // Create a rectangle of five pixel
+    var sizeOfPoint = 10;
+    this.context.beginPath();
     this.context.fillStyle="#FF0000";
-    this.context.fillRect(x, y, 50,50);
-    this.context.fillRect(x, y, 1, 1);
-
+    this.context.arc( x, y, sizeOfPoint, 0, 2 * Math.PI);
+    this.context.stroke();
+    this.context.fill()
 };
 
 org.geeksaints.chiesel =  {};
