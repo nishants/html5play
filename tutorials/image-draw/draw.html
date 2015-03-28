@@ -34,9 +34,13 @@
 
 		
 		$(document).ready(function(){
-			var drawing = org.geeksaints.chiesel.editImage($("#some-image"));
+			window.drawing = org.geeksaints.chiesel.editImage($("#some-image"));
 		    setTimeout(function(){drawing.drawLine({x: 0, y: 0}, {x:300 ,y: 150});});
 		    setTimeout(function(){drawing.drawLine({x: 300 ,y:0 }, {x: 0, y: 150});});
+		    setTimeout(function(){drawing.markPoint(400, 400);});
+		    setTimeout(function(){drawing.markPoint(450, 450);});
+		    setTimeout(function(){drawing.markPoint(500, 500);});
+		    setTimeout(function(){drawing.markPoint(550, 550);});
 		});
 	</script>
 </body>

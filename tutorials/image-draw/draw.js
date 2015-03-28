@@ -8,6 +8,11 @@ var Drawing = function(context){
     this.context = context;
 };
 
+Drawing.prototype.size = function(){
+    this
+    return {};
+}
+
 Drawing.prototype.drawLine = function(from, to){
     var context = this.context;
     context.beginPath();
@@ -18,9 +23,18 @@ Drawing.prototype.drawLine = function(from, to){
     context.stroke();
 };
 
+Drawing.prototype.markPoint = function(x, y){
+    // Preferring rect over circle(better performance)
+    // Create a rectangle of five pixel
+    this.context.fillStyle="#FF0000";
+    this.context.fillRect(x, y, 50,50);
+    this.context.fillRect(x, y, 1, 1);
+
+};
+
 org.geeksaints.chiesel =  {};
 org.geeksaints.chiesel.editImage = function($image){
-    var maskID = "drawing";
+    var maskID = "drawing" + Math.random();
     var mask = org.geeksaints.mask($image, newCanvas(maskID));
     var drawingContext = document.getElementById(maskID).getContext("2d");
     var drawing = new Drawing(drawingContext);
