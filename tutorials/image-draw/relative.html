@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+    <link 	rel="stylesheet" href="../../stylesheets/foundation.css">
+    <link 	rel="stylesheet" href="../../stylesheets/lib/bootstrap.css">
+	<link 	rel="stylesheet" href="relative.css">
+
+	<script src="../../javascripts/lib/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="mask.js"></script>
+	<script type="text/javascript" src="draw.js"></script>
+	<script type="text/javascript" src="relative.js"></script>
+</head>
+
+<body>
+<!-- 	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<img id="image1" src="images/background.jpg">
+			</div>
+			<div class="col-xs-8">
+				<img id="image2" src="images/background.jpg">
+			</div>			
+		</div>	
+		<div class="row">
+			<div class="col-xs-7">
+				<img id="image3" src="images/background.jpg">
+			</div>
+			<div class="col-xs-5">
+				<img id="image4" src="images/background.jpg">
+			</div>			
+		</div>	
+	</div> -->
+
+<!-- 	<form id="location-form" class="form-inline layer3 floating">
+	 	<div class="form-group">
+			<input id="x-location" type="text" class="form-control" placeholder="x" value="50">
+		</div>
+
+	 	<div class="form-group">
+			<input id="y-location"  type="text" class="form-control" placeholder="y" value="50">
+		</div>
+
+		  <button id="show-location" type="submit" class="btn btn-primary" onclick="markOnImages()">Show</button>
+	</form>
+ -->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<label>Hello</label>
+			</div>			
+			<div class="col-xs-4">
+				<img id="selector-image" src="images/spreadsheet.jpg">
+			</div>
+			<div class="col-xs-4">
+				<img id="presenter-image" src="images/spreadsheet.jpg">
+			</div>			
+		</div>	
+		<div class="row">
+			<input type="text" id="selected-point" class="col-xs-12">				
+		</div>
+	</div>
+	<script type="text/javascript">
+		var relativeToAbsolute = function(point, dimension, location){
+			//x, y, height, length, top, left
+			var x, y;
+
+			x = point.x * dimension.width / 100;
+			y = point.y * dimension.height / 100;
+
+			return {
+				x: x,
+				y: y
+			};
+		};
+
+		var dimensionOf = function($element){
+			return {
+				height: $element.height(),
+				width: $element.width()
+			};
+		};
+
+
+
+		$(document).ready(function(){
+			// var drawing1 = org.geeksaints.chiesel.editImage($("#image1"));
+			// var drawing2 = org.geeksaints.chiesel.editImage($("#image2"));
+			// var drawing3 = org.geeksaints.chiesel.editImage($("#image3"));
+			// var drawing4 = org.geeksaints.chiesel.editImage($("#image4"));
+
+			// window.markOnImages = function(point){
+			// 	var point = {
+			// 		x: parseInt($("#x-location").val()),
+			// 		y: parseInt($("#y-location").val())
+			// 	};
+
+			// 	markOnImage(point, $("#image1"), drawing1);
+			// 	markOnImage(point, $("#image2"), drawing2);
+			// 	markOnImage(point, $("#image3"), drawing3);
+			// 	markOnImage(point, $("#image4"), drawing4);
+			// };
+			
+			var markOnImage = function(point, $element, drawing){
+				var point = relativeToAbsolute(
+					point, 
+					dimensionOf($element)
+				);
+				drawing.markPoint(point.x, point.y);
+			};
+			// // setTimeout(function(){markOnImages({x: 50, y: 50});});
+			// $("show-location").click(markOnImages);
+			// window.drawing1 = drawing1;
+
+						// var drawing1 = org.geeksaints.chiesel.editImage($("#image1"));
+			var getPointFrom = function(e){
+				image = $("#selector-image");
+				// console.log("image.left : "+ image.offset().left);
+				// // console.log("image.top : "+ image.offset().top);
+
+				// console.log("width : " + image.width());
+				// console.log("hight : " + image.height());
+
+				console.log(
+					"screen : " + e.screenX + ","+e.screenY
+				);
+
+				console.log(
+					"client : " + e.clientX + ","+e.clientY
+				);
+
+				console.log(
+					"page : " + e.pageX + ","+e.pageY
+				);
+
+				return {
+					x: e.clientX,
+					y: e.clientY
+				};
+			};
+			var selectorImage = $("#selector-image");
+			var presenterImage = $("#presenter-image");
+			var pointPresenter = org.geeksaints.chiesel.editImage(presenterImage);
+
+			var showLocation = function(e){
+				var point = org.geeksaints.toRelative(
+					getPointFrom(e),
+					selectorImage
+				);
+				markOnImage(point, presenterImage, pointPresenter);
+
+				$("#selected-point").val(point.x+" , "+point.y);
+			};
+
+			$("#selector-image").click(showLocation);
+
+		});
+	</script>
+</body>
+</html>
